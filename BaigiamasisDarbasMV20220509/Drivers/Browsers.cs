@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace BaigiamasisDarbasMV20220509.Drivers
 {
-    class Browsers
+    enum Browsers
     {
+        Chrome,
+        IncognitoChrome,
+        Firefox,
+        Edge,
+        Safari,
+        InternetExplorer,
+        Opera
     }
 }

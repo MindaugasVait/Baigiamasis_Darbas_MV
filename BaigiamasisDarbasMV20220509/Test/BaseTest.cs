@@ -1,5 +1,8 @@
-﻿using BaigiamasisDarbasMV20220509.Page;
+﻿using BaigiamasisDarbasMV20220509.Drivers;
+using BaigiamasisDarbasMV20220509.Page;
+using BaigiamasisDarbasMV20220509.Tools;
 using NUnit.Framework;
+using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
@@ -19,9 +22,8 @@ namespace BaigiamasisDarbasMV20220509.Test
         [OneTimeSetUp]
         public static void OneTimeSetUp()
         {
-            Driver = new ChromeDriver();
-            Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-            Driver.Manage().Window.Maximize();
+            Driver = CustomDrivers.GetChromeDriver();
+                       
             _baigiamasisPage = new BaigiamasisPage(Driver);
         }
 
@@ -29,6 +31,14 @@ namespace BaigiamasisDarbasMV20220509.Test
         public static void OneTimeTearDown()
         {
             // _driver.Quit();
+        }
+        [TearDown]
+        public static void TearDown()
+        {
+            if(TestContext.CurrentContext.Result.Outcome!= ResultState.Success)
+            {
+                MyScreenshot.TakeScreenshot(Driver);
+            }
         }
     }
 }
