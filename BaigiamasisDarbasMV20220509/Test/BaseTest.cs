@@ -18,6 +18,8 @@ namespace BaigiamasisDarbasMV20220509.Test
         protected static IWebDriver Driver;
 
         public static BaigiamasisPage _baigiamasisPage;
+        public static BaigiamasisSearchFunctionPage _baigiamasisSearchFunctionPage;
+        public static BaigiamasisNavigateMenuPage _baigiamasisNavigateMenuPage;
 
         [OneTimeSetUp]
         public static void OneTimeSetUp()
@@ -25,12 +27,14 @@ namespace BaigiamasisDarbasMV20220509.Test
             Driver = CustomDrivers.GetChromeDriver();
                        
             _baigiamasisPage = new BaigiamasisPage(Driver);
+            _baigiamasisSearchFunctionPage = new BaigiamasisSearchFunctionPage(Driver);
+            _baigiamasisNavigateMenuPage = new BaigiamasisNavigateMenuPage(Driver);
         }
 
         [OneTimeTearDown]
         public static void OneTimeTearDown()
         {
-            // _driver.Quit();
+            Driver.Quit();
         }
         [TearDown]
         public static void TearDown()

@@ -12,8 +12,10 @@ namespace BaigiamasisDarbasMV20220509.Test
 {
     class BaigiamasisSearchFunctionTest : BaseTest
     {
-        [TestCase ("npn 0.1a 0.5w to92", "npn", "to92", "0.1a")]
-        [TestCase ("resistor 10k axial metal oxide", "10k", "axial", "metal oxide")]
+        [TestCase("kabelis, vienagyslis, varinis", "kabelis", "vienagyslis", "varinis")]
+        [TestCase("npn, 0.1a, 0.5w, to92", "npn", "to92", "0.1a")]
+        [TestCase("resistor, 10k, axial, metal, oxide", "10k", "axial", "metal oxide")]
+
 
         public static void CheckSearchFunctionality(string searchingFor, string el1, string el2, string el3)
         {

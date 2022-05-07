@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace BaigiamasisDarbasMV20220509.Test
 {
-    class BaigiamasisVisualMenuTest : BaseTest
+    class BaigiamasisNavigateMenuTest : BaseTest
     {
         
         [Test]
