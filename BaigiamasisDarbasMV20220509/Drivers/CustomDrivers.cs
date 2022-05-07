@@ -30,13 +30,17 @@ namespace BaigiamasisDarbasMV20220509.Drivers
             switch (browser)
             {
                 case Browsers.Chrome:
-                    webDriver = new ChromeDriver();
+                    ChromeOptions options = new ChromeOptions();
+                    options.AddArguments("--disable-notifications");
+                    webDriver = new ChromeDriver(options);
                     break;
                 case Browsers.Firefox:
                     webDriver = new FirefoxDriver();
                     break;
                 default:
-                    webDriver = new ChromeDriver();
+                    ChromeOptions dOptions = new ChromeOptions();
+                    dOptions.AddArguments("--disable-notifications");
+                    webDriver = new ChromeDriver(dOptions);
                     break;
             }
             webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);

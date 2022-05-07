@@ -10,23 +10,36 @@ using System.Threading.Tasks;
 
 namespace BaigiamasisDarbasMV20220509.Test
 {
-    class BaigiamasisTest : BaseTest
+    class BaigiamasisFilterFunctionTest : BaseTest
     {
         [Test]
 
-        public static void TestSelectionButtons()
+        public static void CheckFilterFunctionality()
         {
             _baigiamasisPage.NavigateToDefaultPage();
             _baigiamasisPage.ClosePopUp();
             _baigiamasisPage.ClickVisosKategorijosButton();
-            //_baigiamasisPage.ClickBodyElement();
-            _baigiamasisPage.ClickElektronikosKomponentai();
+            _baigiamasisPage.ClickVisualButtons();
+            _baigiamasisPage.GoToTranzistoriaiFilter();
+        }
+        
+        /*
+        [Test]
+        public static void CheckMegaMenuButtonsFuntionality()
+        {
+            _baigiamasisPage.NavigateToDefaultPage();
+            _baigiamasisPage.ClosePopUp();
+            _baigiamasisPage.ClickMegaMenuButtons();
+            _baigiamasisPage.CheckElementsInPuslaidininkiai();
+        }
+        */
+        /*  _baigiamasisPage.ClickElektronikosKomponentai();
             _baigiamasisPage.ClickAktyvusKomponentai();
             _baigiamasisPage.ClickPuslaidininkiai();
             _baigiamasisPage.ClickVisiTranzistoriai();
             _baigiamasisPage.ClickTranzistoriai();
             _baigiamasisPage.ClickDaugiauFiltruButton();
-            //_baigiamasisPage.ClickKorpusasTO220Selections();
-        }
+            _baigiamasisPage.ClickKorpusasTO220Selections();
+        */
     }
 }
