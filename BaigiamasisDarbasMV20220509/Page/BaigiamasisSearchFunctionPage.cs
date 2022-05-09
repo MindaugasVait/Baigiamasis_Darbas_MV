@@ -13,51 +13,64 @@ namespace BaigiamasisDarbasMV20220509.Page
 {
     class BaigiamasisSearchFunctionPage : BasePage
     {
-        private const string PageAddress = "https://www.lemona.lt/";
         //Konstruktorius Web driveriui:
         public BaigiamasisSearchFunctionPage(IWebDriver webDriver) : base(webDriver) { }
 
-        public void NavigateToDefaultPage()
-        {
-            Driver.Url = PageAddress;
-        }
         //Elementu sarasas:
-        private static IWebElement _popup => Driver.FindElement(By.CssSelector("#root > div.CookieWarning-warningContainer-2rh > div > button"));
-        //Search elemento patikros sarasas:
+        //Menu sarasas:
+        private IWebElement _visoskategorijosButton => Driver.FindElement(By.CssSelector("#root > header > div.sticky-wrapper > div > div > nav > ul > li.megamenu-container.first-container"));
+        //Search elemento patikros sarasas:    
+        //private IWebElement _switchOffNaujienaPopUp => Driver.FindElement(By.CssSelector("#root > header > div.header-middle > div > div.header-center > div > form > div > div.image-search-tooltip > div.fake-tooltip > div > button > svg"));
         private IWebElement _searchInputField => Driver.FindElement(By.CssSelector("#root > header > div.header-middle > div > div.header-center > div > form > div > div.search-wrapper > input"));
         private IWebElement _searchButton => Driver.FindElement(By.CssSelector("#root > header > div.header-middle > div > div.header-center > div > form > div > button.search-button.btn-with-icon.btn.btn-primary"));
+        private IList<IWebElement> _elementPList => Driver.FindElements(By.XPath("//div[@class='product-list-product col-sm-12']"));
 
-        public void ClosePopUp()
+        //Iseinama is visos kategorijos menu:
+        public void GoingOutOfVisosKategorijosMenu()
         {
-            GetWait(10).Until(d => _popup.Displayed);
-            _popup.Click();
+            _visoskategorijosButton.Click();
+            Driver.Navigate().Refresh();
         }
 
+
+        //Ijungiama Search Funkcija:
         public void SubmitSearch(string searchingFor)
         {
+            //_switchOffNaujienaPopUp.Click();
+            _searchInputField.Clear();
             _searchInputField.SendKeys(searchingFor);
             _searchButton.Click();
         }
 
+        //Tikrinami Search funkcijos rezultatai:
         public void EvaluateTestSearchResults(string el1, string el2, string el3)
         {
-            IList<IWebElement> elementPList = Driver.FindElements(By.XPath("//div[@class='product-list-product col-sm-12']"));
-
-            int rastuPrekiuKiekis = Driver.FindElements(By.XPath("//div[@class='product-list-product col-sm-12']")).Count;
+            int rastuPrekiuKiekis = _elementPList.Count;
 
             int prekiuAtitinkanciAprasymaKiekis = 0;
 
-            IList<string> rastosPrekes = new List<string>();
-            foreach (IWebElement preke in elementPList)
+            /*Pabandymui:
+            IList<string> puslaidininkiuKomponentai = new List<string>();
+
+            foreach (IWebElement element in _elementPList)
             {
-                if (preke.Text.ToLower().Contains(el1) == true || preke.Text.ToLower().Contains(el2) == true || preke.Text.ToLower().Contains(el3) == true)
+                puslaidininkiuKomponentai.Add(element.Text);
+            }
+            */
+
+            //IList<string> rastosPrekes = new List<string>();
+
+            if (rastuPrekiuKiekis != 0)
+            {
+                foreach (IWebElement preke in _elementPList)
                 {
-                    prekiuAtitinkanciAprasymaKiekis++;
+                    if (preke.Text.ToLower().Contains(el1) == true || preke.Text.ToLower().Contains(el2) == true || preke.Text.ToLower().Contains(el3) == true)
+                    {
+                        prekiuAtitinkanciAprasymaKiekis++;
+                    }
                 }
             }
-
-            string shownResultprekesList = string.Join(",", rastosPrekes.ToArray());
             Assert.AreEqual(rastuPrekiuKiekis, prekiuAtitinkanciAprasymaKiekis, "Found goods varies from expected");
-        }       
+        }
     }
 }

@@ -14,32 +14,14 @@ namespace BaigiamasisDarbasMV20220509.Test
     {
         [Test]
 
-        public static void CheckFilterFunctionality()
-        {
+       public static void CheckFilterFunctionality()
+       {
             _baigiamasisPage.NavigateToDefaultPage();
             _baigiamasisPage.ClosePopUp();
-            _baigiamasisPage.ClickVisosKategorijosButton();
-            _baigiamasisPage.ClickVisualButtons();
-            _baigiamasisPage.GoToTranzistoriaiFilter();
+            _baigiamasisNavigateMenuPage.ClickVisosKategorijosButton();
+            _baigiamasisNavigateMenuPage.ClickVisualButtons();
+            _baigiamasisFilterFunctionPage.GoToTransistorFilterElement();
+            _baigiamasisFilterFunctionPage.ClickFilterElements("vilniaus žirmūnų parduotuvė");
         }
-        
-        /*
-        [Test]
-        public static void CheckMegaMenuButtonsFuntionality()
-        {
-            _baigiamasisPage.NavigateToDefaultPage();
-            _baigiamasisPage.ClosePopUp();
-            _baigiamasisPage.ClickMegaMenuButtons();
-            _baigiamasisPage.CheckElementsInPuslaidininkiai();
-        }
-        */
-        /*  _baigiamasisPage.ClickElektronikosKomponentai();
-            _baigiamasisPage.ClickAktyvusKomponentai();
-            _baigiamasisPage.ClickPuslaidininkiai();
-            _baigiamasisPage.ClickVisiTranzistoriai();
-            _baigiamasisPage.ClickTranzistoriai();
-            _baigiamasisPage.ClickDaugiauFiltruButton();
-            _baigiamasisPage.ClickKorpusasTO220Selections();
-        */
     }
 }

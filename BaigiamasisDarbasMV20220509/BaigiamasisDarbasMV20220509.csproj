@@ -57,14 +57,19 @@
   <ItemGroup>
     <Compile Include="Drivers\Browsers.cs" />
     <Compile Include="Drivers\CustomDrivers.cs" />
+    <Compile Include="Page\BaigiamasisFilterFunctionPage.cs" />
+    <Compile Include="Page\BaigiamasisLemoneKontaktaiCheckPage.cs" />
     <Compile Include="Page\BaigiamasisPage.cs" />
     <Compile Include="Page\BaigiamasisSearchFunctionPage.cs" />
     <Compile Include="Page\BaigiamasisNavigateMenuPage.cs" />
+    <Compile Include="Page\BaigiamasisShopingCartFunctionPage.cs" />
     <Compile Include="Page\BasePage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Test\BaigiamasisLemonaKontaktaiCheckTest.cs" />
     <Compile Include="Test\BaigiamasisSearchFunctionTest.cs" />
     <Compile Include="Test\BaigiamasisNavigateMenuTest.cs" />
     <Compile Include="Test\BaigiamasisFilterFunctionTest.cs" />
+    <Compile Include="Test\BaigiamasisShopingCartFunctionTest.cs" />
     <Compile Include="Test\BaseTest.cs" />
     <Compile Include="Tools\MyScreenshot.cs" />
   </ItemGroup>

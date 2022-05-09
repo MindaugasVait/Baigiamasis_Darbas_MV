@@ -18,28 +18,36 @@ namespace BaigiamasisDarbasMV20220509.Test
         protected static IWebDriver Driver;
 
         public static BaigiamasisPage _baigiamasisPage;
+        public static BaigiamasisLemoneKontaktaiCheckPage _baigiamasisLemoneKontaktaiCheckPage;
         public static BaigiamasisSearchFunctionPage _baigiamasisSearchFunctionPage;
         public static BaigiamasisNavigateMenuPage _baigiamasisNavigateMenuPage;
-
+        public static BaigiamasisFilterFunctionPage _baigiamasisFilterFunctionPage;
+        public static BaigiamasisShoppingCartFunctionPage _baigiamasisShoppingCartFunctionPage;
+        
         [OneTimeSetUp]
         public static void OneTimeSetUp()
         {
             Driver = CustomDrivers.GetChromeDriver();
                        
             _baigiamasisPage = new BaigiamasisPage(Driver);
+            _baigiamasisLemoneKontaktaiCheckPage = new BaigiamasisLemoneKontaktaiCheckPage(Driver);
             _baigiamasisSearchFunctionPage = new BaigiamasisSearchFunctionPage(Driver);
             _baigiamasisNavigateMenuPage = new BaigiamasisNavigateMenuPage(Driver);
+            _baigiamasisFilterFunctionPage = new BaigiamasisFilterFunctionPage(Driver);
+            _baigiamasisShoppingCartFunctionPage = new BaigiamasisShoppingCartFunctionPage(Driver);            
         }
 
         [OneTimeTearDown]
+        
         public static void OneTimeTearDown()
         {
-            Driver.Quit();
-        }
+            //Driver.Quit();
+        }       
+
         [TearDown]
         public static void TearDown()
         {
-            if(TestContext.CurrentContext.Result.Outcome!= ResultState.Success)
+            if(TestContext.CurrentContext.Result.Outcome != ResultState.Success)
             {
                 MyScreenshot.TakeScreenshot(Driver);
             }
