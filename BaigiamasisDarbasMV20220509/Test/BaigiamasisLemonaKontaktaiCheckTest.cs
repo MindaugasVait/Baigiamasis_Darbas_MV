@@ -19,8 +19,7 @@ namespace BaigiamasisDarbasMV20220509.Test
             _baigiamasisPage.NavigateToDefaultPage();
             _baigiamasisPage.ClosePopUp();
             _baigiamasisLemoneKontaktaiCheckPage.ClickKontaktaiButton();
-            _baigiamasisLemoneKontaktaiCheckPage.CheckShopInfo("UAB “Lemona”");
-
+            _baigiamasisLemoneKontaktaiCheckPage.CheckShopInfo("UAB “Lemona”", "P. Lukšio g. 19, Vilnius, LT-09132", "+370 (616) 19222", "I-V 8:00 - 18:00, VI 10:00 - 15:00");
         }
 
     }

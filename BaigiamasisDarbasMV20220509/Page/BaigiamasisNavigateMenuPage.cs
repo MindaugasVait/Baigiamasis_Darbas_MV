@@ -21,8 +21,8 @@ namespace BaigiamasisDarbasMV20220509.Page
         private IWebElement _visoskategorijosButton => Driver.FindElement(By.CssSelector("#root > header > div.sticky-wrapper > div > div > nav > ul > li.megamenu-container.first-container"));
         //Paveiksleliu meniu:
         private IWebElement _elektronikosKomponentaiButton => Driver.FindElement(By.CssSelector("#root > main > div > div > div > div > div:nth-child(2) > div > div > a:nth-child(4)"));
-        private IWebElement _aktyvusKomponentaiButton => Driver.FindElement(By.CssSelector("#root > main > div.category > div > div > div > div > a:nth-child(2)"));
-        private IWebElement _puslaidininkiaiButton => Driver.FindElement(By.CssSelector("#root > main > div.category > div > div > div > div > a:nth-child(3)"));
+        private IWebElement _aktyvusKomponentaiButton => Driver.FindElement(By.CssSelector("#root > main > div.category > div > div > div > div > a:nth-child(5)"));
+        private IWebElement _puslaidininkiaiButton => Driver.FindElement(By.CssSelector("#root > main > div.category > div > div > div > div > a:nth-child(1)"));
         //Mega meniu:
         private IWebElement _elektronikosKomponentaiMegaMeniuButton => Driver.FindElement(By.CssSelector("#root > header > div.sticky-wrapper > div > div > nav > ul > li.megamenu-container.first-container > div > div > div:nth-child(4) > a"));
         private IWebElement _puslaidininkiaiTextMeniuButton => Driver.FindElement(By.CssSelector("#root > main > div > div > div > div > div.columnGroup-root-1fZ > div:nth-child(1) > div:nth-child(8) > ul:nth-child(1) > li:nth-child(3) > ul > li:nth-child(2) > a"));
@@ -39,13 +39,13 @@ namespace BaigiamasisDarbasMV20220509.Page
             _visoskategorijosButton.Click();
             Driver.Navigate().Refresh();            
             Actions action = new Actions(Driver);
-            action.MoveByOffset(0, 500);            
+            action.MoveByOffset(500, 0);            
             action.Build().Perform();
             _elektronikosKomponentaiButton.Click();
             _aktyvusKomponentaiButton.Click();
             _puslaidininkiaiButton.Click();
-
         }
+
         public void ClickMegaMenuButtons()
         {
             _visoskategorijosButton.Click();
@@ -57,11 +57,9 @@ namespace BaigiamasisDarbasMV20220509.Page
         }
         public void ClickTextMenuButtons()
         {
-            _visoskategorijosButton.Click();
-            //Driver.Navigate().Refresh();
+            _visoskategorijosButton.Click();            
             Actions action = new Actions(Driver);
-            action.MoveByOffset(500, 0);
-            //action.MoveToElement(_puslaidininkiaiTextMeniuButton);
+            action.MoveByOffset(500, 0);            
             action.Click(_puslaidininkiaiTextMeniuButton);
             action.Build().Perform();
             
@@ -69,9 +67,7 @@ namespace BaigiamasisDarbasMV20220509.Page
         //Verifikuojami rezultatai:
         public void CheckElementsInPuslaidininkiai()
         {
-            List<string> RealPuslaidininkiuKomponentai = new List<string>() { "Tilteliniai lygintuvai (18)", "Mikrovaldikliai, mikroprocesoriai ir ... (54)", "Diodai (140)", "Tiristoriai ir triakai (36)", "BJT, IGBT ir FET tranzistoriai (312)", "Integriniai grandynai (337)" };
-
-            string expectedResultPuslaidininkiuKomponentai = string.Join(",", RealPuslaidininkiuKomponentai.ToArray());
+            List<string> realPuslaidininkiuKomponentai = new List<string>() { "Integriniai grandynai", "BJT, IGBT ir FET tranzistoriai", "Tiristoriai ir triakai", "Diodai", "Mikrovaldikliai, mikroprocesoriai ir", "Tilteliniai lygintuvai" };
 
             IList<IWebElement> elementList = Driver.FindElements(By.ClassName("category-card"));
 
@@ -80,11 +76,14 @@ namespace BaigiamasisDarbasMV20220509.Page
             foreach (IWebElement element in elementList)
             {
                 puslaidininkiuKomponentai.Add(element.Text);
+            }            
+
+            for (int i = 0; i < 6; i++)
+            {
+                Assert.IsTrue(puslaidininkiuKomponentai.ElementAt(i).Contains(realPuslaidininkiuKomponentai.ElementAt(i)), "Displayed result varies from expected");
             }
 
-            string shownResultPuslaidininkiuKomponentai = string.Join(",", puslaidininkiuKomponentai.ToArray());
-
-            Assert.IsTrue(shownResultPuslaidininkiuKomponentai.Equals(expectedResultPuslaidininkiuKomponentai), "Displayed result varies from expected");
+            
 
         }
     }

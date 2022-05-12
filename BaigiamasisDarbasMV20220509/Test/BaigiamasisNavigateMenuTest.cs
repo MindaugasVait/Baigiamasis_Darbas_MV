@@ -28,9 +28,8 @@ namespace BaigiamasisDarbasMV20220509.Test
         public static void CheckVisualMenuFuntionality()
         {
             _baigiamasisPage.NavigateToDefaultPage();
-            //_baigiamasisPage.ClosePopUp();
+            _baigiamasisPage.ClosePopUp();
             _baigiamasisNavigateMenuPage.ClickVisosKategorijosButton();
-
             _baigiamasisNavigateMenuPage.ClickVisualButtons();
             _baigiamasisNavigateMenuPage.CheckElementsInPuslaidininkiai();            
         }

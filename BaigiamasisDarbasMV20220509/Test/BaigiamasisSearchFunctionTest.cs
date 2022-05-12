@@ -19,17 +19,17 @@ namespace BaigiamasisDarbasMV20220509.Test
             _baigiamasisPage.ClosePopUp();           
         }
         
-        [TestCase("---Kabelis Vienagyslis Varinis---", "kabelis", "vienagyslis", "varinis", TestName = "Search for cable")]
-        [TestCase("---npn 0.1a 0.5w to92---", "npn", "to92", "0.1a", TestName = "Search for transistor")]
-        [TestCase("---Resistor 10k Axial Metal-Oxide---", "10k", "axial", "metal oxide", TestName = "Search for resistor")]
+        [TestCase("Kabelis ", "Vienagyslis ", "Varinis", "kabelis", "vienagyslis", "varinis", TestName = "Search for cable")]
+        [TestCase("NPN ", "0.1A ", "TO92", "npn", "to92", "0.1a", TestName = "Search for transistor")]
+        [TestCase("10k ", "Resistor ", "Axial", "10k", "axial", "resistor", TestName = "Search for resistor")]
 
 
-        public static void CheckSearchFunctionality(string searchingFor, string el1, string el2, string el3)
+        public static void CheckSearchFunctionality(string searchingFor1, string searchingFor2, string searchingFor3, string el1, string el2, string el3)
         {
             _baigiamasisPage.NavigateToDefaultPage();
             //_baigiamasisPage.ClosePopUp();
-            //_baigiamasisSearchFunctionPage.GoingOutOfVisosKategorijosMenu();            
-            _baigiamasisSearchFunctionPage.SubmitSearch(searchingFor);
+            //_baigiamasisSearchFunctionPage.GoingOutOfVisosKategorijosMenu();
+            _baigiamasisSearchFunctionPage.SubmitSearch(searchingFor1, searchingFor2, searchingFor3);
             _baigiamasisSearchFunctionPage.EvaluateTestSearchResults(el1, el2, el3);
         }
     }

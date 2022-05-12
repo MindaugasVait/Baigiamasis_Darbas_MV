@@ -18,21 +18,36 @@ namespace BaigiamasisDarbasMV20220509.Page
 
         //Elementu sarasas:
         private IWebElement _shoppingCartButton => Driver.FindElement(By.CssSelector("#root > header > div.header-middle > div > div.header-right > div > div > div.dropdownmenu-wrapper > div.dropdown-cart-action > a"));
-        
+
         //Search elemento patikros sarasas:
-        private IList<IWebElement> _itemToCartButtonList => Driver.FindElements(By.CssSelector("#root > main > div > div.container > div > div > div.product-list.row > div:nth-child(3) > div > div.flex-grow-1 > div.product-list-product-buy-desktop-block > button.btn-with-icon.btn-add-cart.btn.btn-outline-success"));
         private IList<IWebElement> _itemResultsNameList => Driver.FindElements(By.ClassName("product-title"));
-        private IWebElement _shoppingCartContent => Driver.FindElement(By.CssSelector("#root > main > div > div > div.cart-page-content-column.col-lg-9 > div.cart-page-item-list-container > div > div > div.cart-page-item-info-container > div:nth-child(2) > div > h2"));
-        public void AddToShoppingCart()
+        private IList<IWebElement> _itemToCartButtonList => Driver.FindElements(By.CssSelector(".btn-with-icon.btn-add-cart.btn.btn-outline-success"));
+        private IList<IWebElement> _shoppingCartContentList => Driver.FindElements(By.CssSelector("h2.font-group-3"));
+        //# root > main > div > div > div.cart-page-content-column.col-lg-9 > div.cart-page-item-list-container > div > div > div.cart-page-item-info-container > div:nth-child(2) > div > h2
+        public void AddItemToShoppingCart (int index)
         {
-            _itemToCartButtonList.First().Click();                        
-        }
-        public void CheckTheItemInShoppingCart()
-        {
-            string fistItemText = _itemResultsNameList.First().Text;
+            string ItemOnSearchList = _itemResultsNameList.ElementAt(index).Text;
+            _itemToCartButtonList.ElementAt(index).Click();
             _shoppingCartButton.Click();
-            string orderedItemText = _shoppingCartContent.Text;
+            string ItemInShoppingCart = _shoppingCartContentList.ElementAt(index).Text;
+            Assert.IsTrue(ItemInShoppingCart.Contains(ItemOnSearchList), "Displayed result varies from expected");
+        }
+        
+        
+        /*public string SecondItemToShoppingCartData(int index)
+        {
+            string firstItemOnSecondSearchList = _itemResultsNameList.ElementAt(index).Text;
+            return firstItemOnSecondSearchList;
+        }
+        */
+       
+
+        /*public void CheckTheItemInShoppingCart(int index, int index2)
+        {
+            
+            _shoppingCartButton.Click();
+            string orderedItemText = _shoppingCartContentList.ElementAt(index2).Text;
             Assert.IsTrue(fistItemText.ToLower().Contains(orderedItemText.ToLower()), "Ordered item varies from expected");
-        } 
+        } */
     }
 }

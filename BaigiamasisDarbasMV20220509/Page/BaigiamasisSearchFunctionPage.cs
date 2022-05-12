@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium.Interactions;
+using System.Threading;
 
 namespace BaigiamasisDarbasMV20220509.Page
 {
@@ -34,11 +35,17 @@ namespace BaigiamasisDarbasMV20220509.Page
 
 
         //Ijungiama Search Funkcija:
-        public void SubmitSearch(string searchingFor)
+        public void SubmitSearch(string searchingFor1, string searchingFor2, string searchingFor3)
         {
             //_switchOffNaujienaPopUp.Click();
             _searchInputField.Clear();
-            _searchInputField.SendKeys(searchingFor);
+            Thread.Sleep(1000);
+            _searchInputField.SendKeys(searchingFor1);
+            Thread.Sleep(500);
+            _searchInputField.SendKeys(searchingFor2);
+            Thread.Sleep(500);
+            _searchInputField.SendKeys(searchingFor3);
+            
             _searchButton.Click();
         }
 
@@ -60,7 +67,7 @@ namespace BaigiamasisDarbasMV20220509.Page
 
             //IList<string> rastosPrekes = new List<string>();
 
-            if (rastuPrekiuKiekis != 0)
+            if (rastuPrekiuKiekis != 0 && rastuPrekiuKiekis > 1)
             {
                 foreach (IWebElement preke in _elementPList)
                 {

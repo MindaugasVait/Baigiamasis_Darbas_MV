@@ -23,7 +23,13 @@ namespace BaigiamasisDarbasMV20220509.Page
         }
         //Elementu sarasas:
         private static IWebElement _popup => Driver.FindElement(By.CssSelector("#root > div.CookieWarning-warningContainer-2rh > div > button"));
-                
+
+        /*Panaudoti Explicit Wait (gal pades su stale element?):
+        WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+        IWebElement SearchResult = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.XPath(target_xpath)));
+        informacija is: https://www.lambdatest.com/blog/explicit-fluent-wait-in-selenium-c/
+        */
+        
         //Uzdaro PopUp:
         public void ClosePopUp()
         {
