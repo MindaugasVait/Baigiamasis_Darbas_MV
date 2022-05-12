@@ -20,8 +20,7 @@ namespace BaigiamasisDarbasMV20220509.Page
         //Elementu sarasas:
         //Menu sarasas:
         private IWebElement _visoskategorijosButton => Driver.FindElement(By.CssSelector("#root > header > div.sticky-wrapper > div > div > nav > ul > li.megamenu-container.first-container"));
-        //Search elemento patikros sarasas:    
-        //private IWebElement _switchOffNaujienaPopUp => Driver.FindElement(By.CssSelector("#root > header > div.header-middle > div > div.header-center > div > form > div > div.image-search-tooltip > div.fake-tooltip > div > button > svg"));
+        //Search elemento patikros sarasas:   
         private IWebElement _searchInputField => Driver.FindElement(By.CssSelector("#root > header > div.header-middle > div > div.header-center > div > form > div > div.search-wrapper > input"));
         private IWebElement _searchButton => Driver.FindElement(By.CssSelector("#root > header > div.header-middle > div > div.header-center > div > form > div > button.search-button.btn-with-icon.btn.btn-primary"));
         private IList<IWebElement> _elementPList => Driver.FindElements(By.XPath("//div[@class='product-list-product col-sm-12']"));
@@ -54,18 +53,7 @@ namespace BaigiamasisDarbasMV20220509.Page
         {
             int rastuPrekiuKiekis = _elementPList.Count;
 
-            int prekiuAtitinkanciAprasymaKiekis = 0;
-
-            /*Pabandymui:
-            IList<string> puslaidininkiuKomponentai = new List<string>();
-
-            foreach (IWebElement element in _elementPList)
-            {
-                puslaidininkiuKomponentai.Add(element.Text);
-            }
-            */
-
-            //IList<string> rastosPrekes = new List<string>();
+            int prekiuAtitinkanciAprasymaKiekis = 0;            
 
             if (rastuPrekiuKiekis != 0 && rastuPrekiuKiekis > 1)
             {

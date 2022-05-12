@@ -21,7 +21,8 @@ namespace BaigiamasisDarbasMV20220509.Test
             _baigiamasisNavigateMenuPage.ClickVisosKategorijosButton();
             _baigiamasisNavigateMenuPage.ClickVisualButtons();
             _baigiamasisFilterFunctionPage.GoToTransistorFilterElement();
-            _baigiamasisFilterFunctionPage.ClickFilterElements("vilniaus žirmūnų parduotuvė");
+            _baigiamasisFilterFunctionPage.ClickFirstFilterElement("kauno parduotuvė");
+            _baigiamasisFilterFunctionPage.ClickSecondFilterElement("npn");
         }
     }
 }

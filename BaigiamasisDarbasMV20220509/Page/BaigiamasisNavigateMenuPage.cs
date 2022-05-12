@@ -26,9 +26,7 @@ namespace BaigiamasisDarbasMV20220509.Page
         //Mega meniu:
         private IWebElement _elektronikosKomponentaiMegaMeniuButton => Driver.FindElement(By.CssSelector("#root > header > div.sticky-wrapper > div > div > nav > ul > li.megamenu-container.first-container > div > div > div:nth-child(4) > a"));
         private IWebElement _puslaidininkiaiTextMeniuButton => Driver.FindElement(By.CssSelector("#root > main > div > div > div > div > div.columnGroup-root-1fZ > div:nth-child(1) > div:nth-child(8) > ul:nth-child(1) > li:nth-child(3) > ul > li:nth-child(2) > a"));
-        //Elementu paieska:
-        //private IList<IWebElement> _elementList = Driver.FindElements(By.ClassName("category-card"));
-
+        
         public void ClickVisosKategorijosButton()
         {
             _visoskategorijosButton.Click();

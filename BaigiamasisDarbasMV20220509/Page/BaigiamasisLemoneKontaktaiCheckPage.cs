@@ -22,6 +22,7 @@ namespace BaigiamasisDarbasMV20220509.Page
         private IWebElement _BenrovesZirmunuParduotuvesAdresas => Driver.FindElement(By.CssSelector("#root > main > div > div > div > div > div > div:nth-child(2) > div.html-root-1pb > div > div > div > div > div > div:nth-child(12) > div > div > div > div:nth-child(3) > div > div:nth-child(2) > p"));
         private IWebElement _BenrovesZirmunuParduotuvesTelefonas => Driver.FindElement(By.CssSelector("#root > main > div > div > div > div > div > div:nth-child(2) > div.html-root-1pb > div > div > div > div > div > div:nth-child(12) > div > div > div > div:nth-child(3) > div > div.column-list4000 > p"));
         private IWebElement _BenrovesZirmunuParduotuvesDarboLaikas => Driver.FindElement(By.CssSelector("#root > main > div > div > div > div > div > div:nth-child(2) > div.html-root-1pb > div > div > div > div > div > div:nth-child(12) > div > div > div > div:nth-child(3) > div > div.column-list3000 > p"));
+        
         //Funkciju sarasas:
         public void ClickKontaktaiButton()
         {

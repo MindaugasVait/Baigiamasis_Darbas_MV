@@ -24,7 +24,10 @@ namespace BaigiamasisDarbasMV20220509.Page
         private IWebElement _daugiauFiltruButton => Driver.FindElement(By.CssSelector("#root > main > div.category > div > div > div > nav.toolbox.product-list-options-display-options > div.product-filters.product-filters-desk > form > div > button.btn-with-icon.product-filters-desk-toggler.btn.btn-light"));
         //Search elemento patikros sarasas:
         
-        private IWebElement _filterChoises => Driver.FindElement(By.ClassName("form-check-input"));
+        private IWebElement _filterChoises1 => Driver.FindElement(By.ClassName("form-check-input"));
+        private IWebElement _filterChoises2 => Driver.FindElement(By.ClassName("form-check-input"));
+
+
         private IWebElement _korpusasTO220Filter => Driver.FindElement(By.Id("desk-ep_string_1694-TO220"));
         //Meniu elemento pasirinkimas:
         private IWebElement _bendrasFiltruMeniu => Driver.FindElement(By.CssSelector("#root > main > div.category > div > div > div > nav.toolbox.product-list-options-display-options > div.product-filters.product-filters-desk > form > ul"));
@@ -40,9 +43,10 @@ namespace BaigiamasisDarbasMV20220509.Page
             _visiTranzistoriaiButton.Click();
             _tranzistoriaiButton.Click();
             _daugiauFiltruButton.Click();
+            
         }
 
-        public void ClickFilterElements(string ch1)
+        public void ClickFirstFilterElement(string ch1)
         {
             IList<IWebElement> elementCList = Driver.FindElements(By.ClassName("form-check"));
 
@@ -51,55 +55,74 @@ namespace BaigiamasisDarbasMV20220509.Page
             {
                 if (choise.Text.ToLower().Contains(ch1) == true)
                 {
-                    GetWait(5).Until(d => _filterChoises);
-                    _filterChoises.Click();
+                    GetWait(5).Until(d => _filterChoises1);
+                    _filterChoises1.Click();
+                    break;
                 }
-            }
+            }        
+           
+        }
+        
+        public void ClickSecondFilterElement(string ch2)
+        {
             Driver.Navigate().Refresh();
-        }   
-          /*  
-            foreach (IWebElement choise in elementCList)
-            {
-                if (choise.Text.ToLower().Contains(el2) == true)
-                {
-                    GetWait(5).Until(d => _filterChoises);
-                    _filterChoises.Click();
-                }
-            }
-            Driver.Navigate().Refresh();
-            
-            foreach (IWebElement choise in elementCList)
-            {
-                if (choise.Text.ToLower().Contains(el3) == true)
-                {
-                    GetWait(5).Until(d => _filterChoises);
-                    _filterChoises.Click();
-                }
-            }
-            Driver.Navigate().Refresh();
-            
-            foreach (IWebElement choise in elementCList) 
-            {
-                if (choise.Text.ToLower().Contains(el4) == true)
-                {
-                    GetWait(5).Until(d => _filterChoises);
-                    _filterChoises.Click();
-                }
-            }
-            Driver.Navigate().Refresh();
+            _daugiauFiltruButton.Click();
+            IList<IWebElement> elementCList2 = Driver.FindElements(By.ClassName("form-check"));
+            IWebElement _filterChoises2 = Driver.FindElement(By.ClassName("form-check-input"));
 
-            foreach (IWebElement choise in elementCList)
+            foreach (IWebElement choise1 in elementCList2)
             {
-                if (choise.Text.ToLower().Contains(el5) == true)
+                if (choise1.Text.ToLower().Contains(ch2) == true)
                 {
-                    GetWait(5).Until(d => _filterChoises);
-                    _filterChoises.Click();
+                    GetWait(5).Until(d => _filterChoises2);
+                    _filterChoises2.Click();
+                    break;
                 }
-            }
-            
-            Driver.Navigate().Refresh();                 
-            
-        */
+            }            
+        }
+        /*  
+          foreach (IWebElement choise in elementCList)
+          {
+              if (choise.Text.ToLower().Contains(el2) == true)
+              {
+                  GetWait(5).Until(d => _filterChoises);
+                  _filterChoises.Click();
+              }
+          }
+          Driver.Navigate().Refresh();
+
+          foreach (IWebElement choise in elementCList)
+          {
+              if (choise.Text.ToLower().Contains(el3) == true)
+              {
+                  GetWait(5).Until(d => _filterChoises);
+                  _filterChoises.Click();
+              }
+          }
+          Driver.Navigate().Refresh();
+
+          foreach (IWebElement choise in elementCList) 
+          {
+              if (choise.Text.ToLower().Contains(el4) == true)
+              {
+                  GetWait(5).Until(d => _filterChoises);
+                  _filterChoises.Click();
+              }
+          }
+          Driver.Navigate().Refresh();
+
+          foreach (IWebElement choise in elementCList)
+          {
+              if (choise.Text.ToLower().Contains(el5) == true)
+              {
+                  GetWait(5).Until(d => _filterChoises);
+                  _filterChoises.Click();
+              }
+          }
+
+          Driver.Navigate().Refresh();                 
+
+      */
 
         public void CheckElementsInPuslaidininkiai()
         {
