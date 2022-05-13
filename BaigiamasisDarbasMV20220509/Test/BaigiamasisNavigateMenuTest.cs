@@ -33,18 +33,5 @@ namespace BaigiamasisDarbasMV20220509.Test
             _baigiamasisNavigateMenuPage.ClickVisualButtons();
             _baigiamasisNavigateMenuPage.CheckElementsInPuslaidininkiai();            
         }
-
-        
-        
-        /*[Test]
-        public static void CheckMegaMenuFuntionality()
-        {
-            //_baigiamasisPage.NavigateToDefaultPage();
-            //_baigiamasisPage.ClosePopUp();
-            //_baigiamasisNavigateMenuPage.ClickVisosKategorijosButton();
-            //_baigiamasisNavigateMenuPage.ClickTextMenuButtons();
-
-        }
-        */
     }
 }

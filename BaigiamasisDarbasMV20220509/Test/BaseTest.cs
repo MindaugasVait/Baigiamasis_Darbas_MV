@@ -41,7 +41,7 @@ namespace BaigiamasisDarbasMV20220509.Test
         
         public static void OneTimeTearDown()
         {
-            //Driver.Quit();
+            Driver.Quit();
         }       
 
         [TearDown]

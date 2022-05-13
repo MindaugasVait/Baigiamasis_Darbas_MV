@@ -14,29 +14,22 @@ namespace BaigiamasisDarbasMV20220509.Page
 {
     class BaigiamasisSearchFunctionPage : BasePage
     {
-        //Konstruktorius Web driveriui:
+        
         public BaigiamasisSearchFunctionPage(IWebDriver webDriver) : base(webDriver) { }
 
-        //Elementu sarasas:
-        //Menu sarasas:
         private IWebElement _visoskategorijosButton => Driver.FindElement(By.CssSelector("#root > header > div.sticky-wrapper > div > div > nav > ul > li.megamenu-container.first-container"));
-        //Search elemento patikros sarasas:   
         private IWebElement _searchInputField => Driver.FindElement(By.CssSelector("#root > header > div.header-middle > div > div.header-center > div > form > div > div.search-wrapper > input"));
         private IWebElement _searchButton => Driver.FindElement(By.CssSelector("#root > header > div.header-middle > div > div.header-center > div > form > div > button.search-button.btn-with-icon.btn.btn-primary"));
         private IList<IWebElement> _elementPList => Driver.FindElements(By.XPath("//div[@class='product-list-product col-sm-12']"));
 
-        //Iseinama is visos kategorijos menu:
         public void GoingOutOfVisosKategorijosMenu()
         {
             _visoskategorijosButton.Click();
             Driver.Navigate().Refresh();
         }
 
-
-        //Ijungiama Search Funkcija:
         public void SubmitSearch(string searchingFor1, string searchingFor2, string searchingFor3)
-        {
-            //_switchOffNaujienaPopUp.Click();
+        {            
             _searchInputField.Clear();
             Thread.Sleep(1000);
             _searchInputField.SendKeys(searchingFor1);
@@ -48,7 +41,6 @@ namespace BaigiamasisDarbasMV20220509.Page
             _searchButton.Click();
         }
 
-        //Tikrinami Search funkcijos rezultatai:
         public void EvaluateTestSearchResults(string el1, string el2, string el3)
         {
             int rastuPrekiuKiekis = _elementPList.Count;

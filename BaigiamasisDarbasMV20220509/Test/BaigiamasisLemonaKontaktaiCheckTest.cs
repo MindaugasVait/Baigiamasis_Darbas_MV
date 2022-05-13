@@ -14,7 +14,7 @@ namespace BaigiamasisDarbasMV20220509.Test
     class BaigiamasisLemonaKontaktaiCheckTest : BaseTest
     {
         [Test]
-        public static void CheckTextMenuFuntionality()
+        public static void CheckLemonaShopInformation()
         {
             _baigiamasisPage.NavigateToDefaultPage();
             _baigiamasisPage.ClosePopUp();

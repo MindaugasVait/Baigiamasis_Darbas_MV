@@ -12,26 +12,20 @@ using OpenQA.Selenium.Interactions;
 namespace BaigiamasisDarbasMV20220509.Page
 {
     class BaigiamasisNavigateMenuPage : BasePage
-    {
-
-        //Konstruktorius Web driveriui:
+    {        
         public BaigiamasisNavigateMenuPage(IWebDriver webDriver) : base(webDriver) { }
-
-        //Elementu sarasas:        
+                 
         private IWebElement _visoskategorijosButton => Driver.FindElement(By.CssSelector("#root > header > div.sticky-wrapper > div > div > nav > ul > li.megamenu-container.first-container"));
-        //Paveiksleliu meniu:
         private IWebElement _elektronikosKomponentaiButton => Driver.FindElement(By.CssSelector("#root > main > div > div > div > div > div:nth-child(2) > div > div > a:nth-child(4)"));
         private IWebElement _aktyvusKomponentaiButton => Driver.FindElement(By.CssSelector("#root > main > div.category > div > div > div > div > a:nth-child(5)"));
         private IWebElement _puslaidininkiaiButton => Driver.FindElement(By.CssSelector("#root > main > div.category > div > div > div > div > a:nth-child(1)"));
-        //Mega meniu:
-        private IWebElement _elektronikosKomponentaiMegaMeniuButton => Driver.FindElement(By.CssSelector("#root > header > div.sticky-wrapper > div > div > nav > ul > li.megamenu-container.first-container > div > div > div:nth-child(4) > a"));
         private IWebElement _puslaidininkiaiTextMeniuButton => Driver.FindElement(By.CssSelector("#root > main > div > div > div > div > div.columnGroup-root-1fZ > div:nth-child(1) > div:nth-child(8) > ul:nth-child(1) > li:nth-child(3) > ul > li:nth-child(2) > a"));
         
         public void ClickVisosKategorijosButton()
         {
             _visoskategorijosButton.Click();
         }
-        //Testuojama vizualinio meniu funkcija:
+        
         public void ClickVisualButtons()
         {
             _visoskategorijosButton.Click();
@@ -44,15 +38,6 @@ namespace BaigiamasisDarbasMV20220509.Page
             _puslaidininkiaiButton.Click();
         }
 
-        public void ClickMegaMenuButtons()
-        {
-            _visoskategorijosButton.Click();
-            Actions action = new Actions(Driver);
-            action.MoveByOffset(600, 100);
-            action.ContextClick(_elektronikosKomponentaiMegaMeniuButton);
-            action.Build().Perform();
-
-        }
         public void ClickTextMenuButtons()
         {
             _visoskategorijosButton.Click();            
@@ -62,7 +47,7 @@ namespace BaigiamasisDarbasMV20220509.Page
             action.Build().Perform();
             
         }
-        //Verifikuojami rezultatai:
+       
         public void CheckElementsInPuslaidininkiai()
         {
             List<string> realPuslaidininkiuKomponentai = new List<string>() { "Integriniai grandynai", "BJT, IGBT ir FET tranzistoriai", "Tiristoriai ir triakai", "Diodai", "Mikrovaldikliai, mikroprocesoriai ir", "Tilteliniai lygintuvai" };
@@ -80,9 +65,6 @@ namespace BaigiamasisDarbasMV20220509.Page
             {
                 Assert.IsTrue(puslaidininkiuKomponentai.ElementAt(i).Contains(realPuslaidininkiuKomponentai.ElementAt(i)), "Displayed result varies from expected");
             }
-
-            
-
         }
     }
 }

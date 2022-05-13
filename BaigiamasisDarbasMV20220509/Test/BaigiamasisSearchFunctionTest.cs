@@ -26,9 +26,7 @@ namespace BaigiamasisDarbasMV20220509.Test
 
         public static void CheckSearchFunctionality(string searchingFor1, string searchingFor2, string searchingFor3, string el1, string el2, string el3)
         {
-            _baigiamasisPage.NavigateToDefaultPage();
-            //_baigiamasisPage.ClosePopUp();
-            //_baigiamasisSearchFunctionPage.GoingOutOfVisosKategorijosMenu();
+            _baigiamasisPage.NavigateToDefaultPage();            
             _baigiamasisSearchFunctionPage.SubmitSearch(searchingFor1, searchingFor2, searchingFor3);
             _baigiamasisSearchFunctionPage.EvaluateTestSearchResults(el1, el2, el3);
         }

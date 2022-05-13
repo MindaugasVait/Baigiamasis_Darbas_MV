@@ -23,6 +23,9 @@ namespace BaigiamasisDarbasMV20220509.Test
             _baigiamasisFilterFunctionPage.GoToTransistorFilterElement();
             _baigiamasisFilterFunctionPage.ClickFirstFilterElement("kauno parduotuvė");
             _baigiamasisFilterFunctionPage.ClickSecondFilterElement("npn");
+            _baigiamasisFilterFunctionPage.ClickThirdFilterElement("0.5 w");
+            _baigiamasisFilterFunctionPage.ClickForthFilterElement("0.1 a");
+            _baigiamasisFilterFunctionPage.EvaluateFilterFunction("npn", "0.1a", "0.5w");
         }
     }
 }

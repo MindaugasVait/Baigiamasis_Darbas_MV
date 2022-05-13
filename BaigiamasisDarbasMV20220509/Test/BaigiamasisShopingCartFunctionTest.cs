@@ -19,17 +19,8 @@ namespace BaigiamasisDarbasMV20220509.Test
             _baigiamasisPage.NavigateToDefaultPage();
             _baigiamasisPage.ClosePopUp();
             _baigiamasisSearchFunctionPage.SubmitSearch("NPN ", "0.1A ", "TO92");
-            _baigiamasisSearchFunctionPage.EvaluateTestSearchResults("npn", "to92", "0.1a");
-            //_baigiamasisShoppingCartFunctionPage.FirstItemToShoppingCartData(0);
-            _baigiamasisShoppingCartFunctionPage.AddItemToShoppingCart(0);
-            //_baigiamasisSearchFunctionPage.SubmitSearch("Kabelis ", "Vienagyslis ", "Varinis");
-            //_baigiamasisSearchFunctionPage.EvaluateTestSearchResults("kabelis", "vienagyslis", "varinis");            
-            //_baigiamasisShoppingCartFunctionPage.SecondItemToShoppingCartData(0);
-            //_baigiamasisShoppingCartFunctionPage.AddItemToShoppingCart(0);
-            //_baigiamasisShoppingCartFunctionPage.CheckItemsInShoppingCart(0, 1);
-            //_baigiamasisShoppingCartFunctionPage.CheckTheItemInShoppingCart(1, 1);
-            //_baigiamasisShoppingCartFunctionPage.MoveFromPopUp();
-            // 
+            _baigiamasisSearchFunctionPage.EvaluateTestSearchResults("npn", "to92", "0.1a");            
+            _baigiamasisShoppingCartFunctionPage.AddItemToShoppingCart(0);            
         }
     }
 }
